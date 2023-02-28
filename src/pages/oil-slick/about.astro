@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const name = "Oil Slick"
+const dir = "oil-slick"
+import "./transition.css"
+---
+<Layout title={`About – ${name}`} mpa>
+  <header>
+    <img class="object-cover bg-gray-200 w-full h-full" src="https://picsum.photos/750/250?random=12" width="1500" height="500" alt="">
+    <div class="w-content mx-auto prose">
+      <h1 class="my-6 mx-auto text-8xl leading-[0.75]">About<br>Page</h1>
+    </div>
+  </header>
+  <nav class="not-prose mb-12 mx-auto w-content max-w-full">
+    <ul class="flex justify-end gap-x-2">
+      {
+        [
+          {uri: 'index', title: 'Home', active: false},
+          {uri: 'about', title: 'About', active: true},
+          {uri: 'speaking', title: 'Speaking', active: false}
+        ].map(({ active, uri, title }) => (
+        <li>
+          <a
+            class={`${active === true ? "font-bold" : "font-light opacity-50"} inline-block p-4 underline-offset-4 hover:underline decoration-4 decoration-purple-600 transition`}
+            href={active ? '#' : `/${dir}/${uri}.html`}>
+            {title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <main class="prose w-content max-w-full">
+    <p class="first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-purple-600 first-letter:mr-3 first-letter:float-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat magni voluptate nam maiores pariatur possimus officiis voluptatum, magnam harum commodi autem neque quisquam qui ex quasi perferendis modi nobis assumenda.</p>
+    <p>Ut voluptatum amet autem rerum deserunt animi necessitatibus quaerat iusto labore sint adipisci totam, qui reprehenderit accusamus nulla atque accusantium cumque porro. Dolores, et hic voluptas impedit, sit rerum voluptatibus.</p>
+    <p>Explicabo qui earum molestiae placeat vero deserunt, voluptas ad error eum officiis aliquid necessitatibus natus ab fugit consectetur assumenda saepe fugiat at nobis voluptates in a amet laudantium ea! Dolore.</p>
+    <p>Distinctio minima, deserunt totam doloremque laudantium illum officiis voluptates exercitationem, sed dignissimos corrupti unde quaerat aliquam, nemo eius. Harum itaque nemo nam sit quos, in asperiores. Unde sed facere provident.</p>
+    <p>Enim quisquam accusamus quasi doloremque cumque porro earum odio ipsa cum maxime vitae at culpa sint totam illo reprehenderit, ad ab provident harum unde exercitationem dolores, esse ex repellat. Amet?</p>
+    <p>Tempore, impedit, architecto obcaecati rem debitis porro ipsum deserunt qui sequi possimus eum, aut aperiam nemo soluta, quidem placeat quos libero aspernatur. Quae eveniet iste sint maxime facilis porro corrupti!</p>
+    <p>Placeat perspiciatis, vel tempora repellat inventore alias iure, consectetur! Illo quas itaque ullam sed fugit repudiandae provident harum soluta, voluptate corporis modi accusamus quaerat facilis corrupti commodi? Tenetur, quisquam, necessitatibus.</p>
+    <p>Quaerat in magnam facilis ea quam accusantium nisi, reiciendis, voluptatibus amet ipsam dolor eaque dignissimos ut numquam quas nam, at blanditiis, voluptates doloremque quos itaque officia ad quod cupiditate. Quos.</p>
+    <p>Iste minus labore rerum similique? Voluptates, illo! Amet at quaerat nam, soluta sed atque quia quis libero aliquam exercitationem assumenda esse rerum enim adipisci, reiciendis recusandae, tempore voluptate dolore consequatur.</p>
+    <p>Ducimus sed, amet tempore modi nam expedita molestias ea provident inventore. Esse, molestias. Repudiandae facere explicabo magni culpa dolor provident, deserunt facilis ea, nihil ab, est quasi voluptates ut voluptate?</p>
+  </main>
+  <footer class="prose w-content max-w-full mx-auto text-md font-light text-center p-6">ViewTransition inc. 2023</footer>
+</Layout>

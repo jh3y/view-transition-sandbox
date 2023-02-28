@@ -1,0 +1,8 @@
+@supports(view-transition-name: transition) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    contain: layout;
+    mix-blend-mode: normal;
+    display: block;
+  }
+}

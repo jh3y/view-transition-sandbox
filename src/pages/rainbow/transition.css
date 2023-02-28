@@ -1,0 +1,29 @@
+@supports(view-transition-name: transition) {
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  ::view-transition-group(root),
+  ::view-transition-group(grid) {
+    animation: none;
+  }
+  ::view-transition-new(grid),
+  ::view-transition-old(grid),
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 2;
+  }
+  ::view-transition-new(root) {
+    z-index: -1;
+  }
+
+  ::view-transition-group(grid) {
+    z-index: 2;
+/*     clip-path: inset(0 0 80% 0); */
+  }
+}
