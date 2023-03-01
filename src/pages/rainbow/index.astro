@@ -15,14 +15,14 @@ import "./transition.css"
     <ul class="flex justify-end gap-x-2">
       {
         [
-          {uri: 'index', title: 'Home', active: true},
-          {uri: 'about', title: 'About', active: false},
-          {uri: 'speaking', title: 'Speaking', active: false}
+          {uri: '/', title: 'Home', active: true},
+          {uri: '/about', title: 'About', active: false},
+          {uri: '/speaking', title: 'Speaking', active: false}
         ].map(({ active, uri, title }) => (
         <li>
           <a
             class={`${active === true ? "font-bold" : "font-light opacity-50"} inline-block p-4 underline-offset-4 hover:underline decoration-4 decoration-red-400 transition`}
-            href={active ? '#' : `/${dir}/${uri}.html`}>
+            href={active ? '#' : `/${dir}${uri}`}>
             {title}
           </a>
         </li>
@@ -43,4 +43,4 @@ import "./transition.css"
   </main>
   <footer class="prose w-content max-w-full mx-auto text-md font-light text-center p-6">ViewTransition inc. 2023</footer>
 </Layout>
-<script>import "./transition.js"</script>
+<script>import "./_transition.js"</script>
