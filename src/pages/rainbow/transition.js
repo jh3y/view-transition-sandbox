@@ -1,5 +1,5 @@
 import { getPageContent, onLinkNavigate, transitionHelper } from '../../scripts/view-transition-utils.js'
-
+import gsap from 'gsap'
 const WIPE_SPEED = 250
 const STOPOVER = 200
 const STAGGER_STEP = 100
@@ -20,7 +20,7 @@ onLinkNavigate(async ({ toPath }) => {
         left: 0;
         right: 0;
         height: ${(100 / LINE_COUNT) + 5}vh;
-        background: hsl(${(360 / LINE_COUNT) * l} 90% 80%);
+        background: hsl(${gsap.utils.mapRange(0, LINE_COUNT, 0, 359, l)} 90% 80%);
         transform-origin: 50% 50%;
       `,
     });
