@@ -26,7 +26,7 @@ onLinkNavigate(async ({ toPath }) => {
     });
     LINES.push(LINE)
   }
-  
+  // Create the transition
   const transition = transitionHelper({
     async updateDOM() {
       // This is a pretty heavy-handed way to update page content.
@@ -39,8 +39,9 @@ onLinkNavigate(async ({ toPath }) => {
       for (const LINE of LINES) document.body.append(LINE)
     }
   });
-  
+
   // What if you create a popover and animate that?
+  transition.finished.then(async () => { for (const LINE of LINES) LINE.remove() })
   // What happens during the transition
   transition.ready.then(async () => {
     // Just holds things while you do what you want...
@@ -109,6 +110,5 @@ onLinkNavigate(async ({ toPath }) => {
     await Promise.all(WIPE_BACK)
     // Finished so you can blow it all up.
     holdAnim.finish()
-    for (const LINE of LINES) LINE.remove()
   })
 });
