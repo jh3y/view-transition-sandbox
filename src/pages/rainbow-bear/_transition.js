@@ -12,6 +12,7 @@ onLinkNavigate(async ({ toPath, isBack }) => {
   const LINES = []
   for (let l = 0; l < LINE_COUNT; l++) {
     const LINE = Object.assign(document.createElement('div'), {
+      className: 'transition-line',
       style: `
         contain: paint;
         view-transition-name: line-${l};

@@ -1,0 +1,40 @@
+@supports(view-transition-name: transition) {
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  ::view-transition-group(root),
+  ::view-transition-group(grid) {
+    animation: none;
+  }
+  ::view-transition-new(grid),
+  ::view-transition-old(grid),
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 2;
+  }
+  ::view-transition-new(root) {
+    z-index: -1;
+  }
+
+  ::view-transition-group(grid) {
+    z-index: 2;
+  }
+}
+
+.transition-line:after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  background-image: url("https://assets.codepen.io/605876/Veribear.svg");
+  background-size: 30vmin 30vmin;
+  background-repeat: no-repeat;
+  background-position: 90% 90%;
+  background-attachment: fixed;
+  mix-blend-mode: color-dodge;
+}
